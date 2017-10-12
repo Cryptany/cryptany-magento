@@ -1,0 +1,27 @@
+﻿<?php
+$order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$order->loadByIncrementId($orderId);
+$data = Mage::getSingleton('checkout/session');
+
+$this->helper('CAPayment')->processPayment();
+
+?>
+<h2><?php echo $this->__('Cryptany Payment Gateway') ?></h2>
+<p>Please pay exactly specified amount of ETH to the following address:</p>
+<ul style="margin-bottom: 2em;">
+<li><strong>Wallet address:</strong>&nbsp;0x<?php echo $this->helper('CAPayment')->getPaymentAddress();?></li>
+<li><strong>Sum:</strong>&nbsp;<?php echo $this->helper('CAPayment')->getPaymentSum();?></li>
+</ul>
+<div id="qrcode"></div>
+<script>
+var walletAddress = '<?php echo $this->helper('CAPayment')->getPaymentAddress(); ?>';
+(function($) {
+
+$(document).ready(function() {
+    // create QR code
+    $('#qrcode').qrcode({ text: walletAddress, width: 200, height: 200 });
+});
+
+})( jQuery );
+</script>

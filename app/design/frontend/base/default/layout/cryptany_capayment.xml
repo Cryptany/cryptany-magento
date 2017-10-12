@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action  method="addItem"><type>js</type><name>cryptany/capayment/jquery.qrcode.min.js</name></action>
+        </reference>
+    </default>
+</layout>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0"?>
+<config>
+  <modules>
+    <Cryptany_CAPayment>
+      <version>1.0.0.0</version>
+    </Cryptany_CAPayment>
+  </modules>
+ 
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <custom_field_one>
+          <to_order_payment>*</to_order_payment>
+        </custom_field_one>
+        <custom_field_two>
+          <to_order_payment>*</to_order_payment>
+        </custom_field_two>
+      </sales_convert_quote_payment>
+    </fieldsets>
+     
+    <helpers>
+      <CAPayment>
+        <class>Cryptany_CAPayment_Helper</class>
+      </CAPayment>
+    </helpers>
+ 
+    <blocks>
+      <CAPayment>
+        <class>Cryptany_CAPayment_Block</class>
+      </CAPayment>
+    </blocks>
+         
+    <models>
+      <CAPayment>
+        <class>Cryptany_CAPayment_Model</class>
+      </CAPayment>
+    </models>
+ 
+    <resources>
+      <CAPayment_setup>
+        <setup>
+          <module>Cryptany_CAPayment</module>
+        </setup>
+      </CAPayment_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <CAPayment>
+        <active>1</active>
+        <model>CAPayment/payment</model>
+        <order_status>pending</order_status>
+        <title>Cryptany Payment Gateway</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </CAPayment>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <CAPayment>
+        <use>standard</use>
+        <args>
+          <module>Cryptany_CAPayment</module>
+          <frontName>capayment</frontName>
+        </args>
+      </CAPayment>
+    </routers>
+    <layout>
+            <updates>
+                <module>
+                    <file>cryptany_capayment.xml</file>
+                </module>
+            </updates>
+    </layout>
+  </frontend>
+  <adminhtml>
+        <layout>
+            <updates>
+                <module>
+                    <file>cryptany_capayment.xml</file>
+                </module>
+            </updates>
+        </layout>
+  </adminhtml>
+</config>

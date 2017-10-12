@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<config>
+  <modules>
+    <Cryptany_CAPayment>
+      <active>true</active>
+      <codePool>local</codePool>
+       
+      <depends>
+        <Mage_Payment />
+      </depends>
+    </Cryptany_CAPayment>
+  </modules>
+</config>
