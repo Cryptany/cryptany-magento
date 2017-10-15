@@ -36,7 +36,7 @@
                             <sort_order>3</sort_order>
                         </merchant_id>
                         <merchant_secret translate="label">
-                            <label>Merchant secret key</label>
+                            <label>Merchant Pass Code</label>
                             <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <show_in_default>1</show_in_default>

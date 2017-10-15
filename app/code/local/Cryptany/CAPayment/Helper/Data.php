@@ -51,7 +51,7 @@ class Cryptany_CAPayment_Helper_Data extends Mage_Core_Helper_Abstract
     {
         // Get Eth exchange rate
         $contents = file_get_contents(
-            "https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=USD"
+            "https://cgw.cryptany.io/data/rate"
         );
         $eth_data = json_decode($contents, true);
 
@@ -74,7 +74,7 @@ class Cryptany_CAPayment_Helper_Data extends Mage_Core_Helper_Abstract
         // check customer shipping address country
         $email = $order->getData()['customer_email'];
         $srcAmount = number_format(
-            floatval($order->getGrandTotal())/floatval($eth_data[0]['price_usd']), 6
+            floatval($order->getGrandTotal())/floatval($eth_data['rate']), 6
         );
 
         // create parameters to deliver to gateway

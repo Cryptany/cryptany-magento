@@ -38,7 +38,7 @@ class Cryptany_CAPayment_PaymentController extends Mage_Core_Controller_Front_Ac
             $order->setState(
                 Mage_Sales_Model_Order::STATE_PAYMENT_REVIEW,
                 true,
-                'Payment Success.'
+                'Payment Successful.'
             );
             $order->save();
         }
